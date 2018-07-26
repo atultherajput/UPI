@@ -1,0 +1,117 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>UPI</title>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+        crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css" integrity="sha384-Smlep5jCw/wG7hdkwQ/Z5nLIefveQRIY9nfy6xoR1uRYBtpZgI6339F5dgvm/e9B"
+        crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/js/bootstrap.min.js" integrity="sha384-o+RDsa0aLu++PJvFqy8fFScvbHFLtbvScb8AjopnFD+iEQ7wo/CG0xlczd+2O/em"
+        crossorigin="anonymous"></script>
+</head>
+<body>
+    <div class="container">
+
+            <h2>Pay with UPI</h2>
+            <p>Fill below details:</p>
+            <form id="upi">
+                <div class="form-group">
+                    <label for="mobile">Remitter Mobile Number:</label>
+                    <input type="text" class="form-control" id="mobile" name="mobile">
+                </div>
+                <div class="form-group">
+                    <label for="email">Remitter Email:</label>
+                    <input type="text" class="form-control" id="email" name="email">
+                </div>
+                <div class="form-group">
+                    <label for="pa">Payee VPA:</label>
+                    <input type="text" class="form-control" id="pa" name="pa">
+                </div>
+                <div class="form-group">
+                    <label for="pn">Payee Name:</label>
+                    <input type="text" class="form-control" id="pn" name="pn">
+                </div>
+                <div class="form-group">
+                    <label for="am">Amount:</label>
+                    <input type="text" class="form-control" id="am" name="am">
+                </div>
+                <div class="form-group">
+                    <label for="tr">Transaction Reference ID:</label>
+                    <input type="text" class="form-control" id="tr" name="tr">
+                </div>
+                <div class="form-group">
+                    <label for="tn">Transaction Note:</label>
+                    <input type="text" class="form-control" id="tn" name="tn">
+                </div>
+                <button type="button" class="btn btn-primary" onclick="upi()">Submit</button>
+            </form>
+
+            <div class="alert alert-success alert-dismissable" id="alert-success" style="display:none;">
+                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                Success! message sent successfully.
+            </div>
+            <div class="alert alert-danger alert-dismissable" id="alert-danger" style="display:none;">
+                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                Failed! message not sent.
+            </div>
+
+            <div id="response" style="display:none;">
+                <div class="row">
+                    <div class="col-2"><b>UPI Link: </b></div>
+                    <div class="col-10" id="upiLink"></div>
+                </div>
+                <div class="row">
+                    <div class="col-2"><b>Short URL: </b></div>
+                    <div class="col-10" id="shortURL"></div>
+                </div>
+            </div>
+    
+        </div>
+    
+        <script>
+    
+            const createQueryParams = params =>
+                Object.keys(params)
+                    .map(k => `${k}=${encodeURI(params[k])}`)
+                    .join('&');
+    
+            function upi() {
+                var baseurl = "upi://pay?";
+                var mam = 'null';
+                var cu = 'INR';
+                const mobile = document.getElementById("mobile").value;
+                const email = document.getElementById("email").value;
+                var pa = document.getElementById("pa").value;
+                var pn = document.getElementById("pn").value;
+                var am = document.getElementById("am").value;
+                var tr = document.getElementById("tr").value;
+                var tn = document.getElementById("tn").value;
+                var data = { 'pa': pa, 'pn': pn, 'am': am, 'tr': tr, 'tn': tn, 'mam': mam, 'cu': cu};
+                const querystring = baseurl + createQueryParams(data);
+                console.log(querystring);
+                
+                $.ajax({
+                type: "POST",
+                url: "/",
+                data: {querystring:querystring, mobile:mobile, email:email}
+                }).done(function( res ) {
+                //TODO
+                var response = JSON.parse(res);
+                console.log(response);
+                if (response.status == 'success') {
+                    $('#alert-success').show();
+                    $('#response').show();
+                    $('#upiLink').html(response.upiLink);
+                    $('#shortURL').html(response.shortURL);
+                } else {
+                    $('#alert-danger').show();
+                }
+                });
+            }
+    
+        </script>
+</body>
+</html>
