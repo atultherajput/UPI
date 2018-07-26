@@ -106,7 +106,7 @@ def url_generator(size=6, chars=string.ascii_letters + string.digits):
 
 
 def sendSMS(number, message):
-    apikey = 'OxQFMBkSdbQ-Zd8S9Q9ExcjK82s76jJ5dYaib3bphI'
+    apikey = 'xxxxxxxxxxxxxxxxxxxxxxxxxxxx'
     numbers = number
     data =  urlencode({'apikey': apikey, 'numbers': numbers, 'message' : message})
     data = data.encode('utf-8')
