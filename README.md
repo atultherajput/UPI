@@ -8,4 +8,4 @@
 ![UPI](https://github.com/atultherajput/UPI/blob/master/assets/upi-screenshot.png)
 
 ## Note:
-You need to register at Textlocal (SMS service provider) to get API key (10 free credits to new users).
+You need to register at [Textlocal](https://www.textlocal.in) (SMS service provider) to get API key (10 free credits to new users).
