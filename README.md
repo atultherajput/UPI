@@ -6,4 +6,6 @@
 4. When user browse this short URL in mobile, it will redirect to that UPI link and invokes the local PSP application (like BHIM or PhonePe), where the user can confirm the details, and complete the payment.
 
 ![UPI](https://github.com/atultherajput/UPI/blob/master/assets/upi-screenshot.png)
-<img src="https://github.com/atultherajput/UPI/blob/master/assets/PSP-PhonePe.png" alt="PSP" width="50%" height="600">
+
+## Note:
+You need to register at Textlocal (SMS service provider) to get API key (10 free credits to new users).
