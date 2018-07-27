@@ -67,6 +67,10 @@
                     <div class="col-2"><b>Short URL: </b></div>
                     <div class="col-10" id="shortURL"></div>
                 </div>
+                <div id="qr" class="row">
+                        <img class="rounded mx-auto d-block" src="" alt="" height="150" title="" width="150" />
+                </div>
+                <div class="text-center">Scan this QR to Pay directly from your mobile.</div>
             </div>
     
         </div>
@@ -106,6 +110,8 @@
                     $('#response').show();
                     $('#upiLink').html(response.upiLink);
                     $('#shortURL').html(response.shortURL);
+                    var loc = "https://api.qrserver.com/v1/create-qr-code/?data="+encodeURIComponent(response.upiLink)+"&amp;size=100x100";
+                    $('#qr img').attr("src",loc);
                 } else {
                     $('#alert-danger').show();
                 }
