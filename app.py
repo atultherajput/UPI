@@ -65,8 +65,8 @@ def index():
             smsResp = sendSMS(number, message)
             newResp = {}
             newResp['status'] = 'success'
-            exitResp['shortURL'] = request.url_root+shorturl
-            exitResp['upiLink'] = json_decoded[shorturl]
+            newResp['shortURL'] = request.url_root+shorturl
+            newResp['upiLink'] = json_decoded[shorturl]
             newResp['emailStatus'] = emailStatus
             newResp['smsResp'] = 'smsResp'
             newJson = json.dumps(newResp)

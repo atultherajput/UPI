@@ -65,7 +65,7 @@
                 </div>
                 <div class="row">
                     <div class="col-2"><b>Short URL: </b></div>
-                    <div class="col-10" id="shortURL"></div>
+                    <div class="col-10" id="shortURL"><a href=""></a></div>
                 </div>
                 <div id="qr" class="row">
                         <img class="rounded mx-auto d-block" src="" alt="" height="150" title="" width="150" />
@@ -109,7 +109,8 @@
                     $('#alert-success').show();
                     $('#response').show();
                     $('#upiLink').html(response.upiLink);
-                    $('#shortURL').html(response.shortURL);
+                    $('#shortURL a').html(response.shortURL);
+                    $('#shortURL a').attr("href",response.shortURL);
                     var loc = "https://api.qrserver.com/v1/create-qr-code/?data="+encodeURIComponent(response.upiLink)+"&amp;size=100x100";
                     $('#qr img').attr("src",loc);
                 } else {
