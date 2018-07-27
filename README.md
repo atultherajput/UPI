@@ -9,3 +9,5 @@
 
 ## Note:
 You need to register at [Textlocal](https://www.textlocal.in) (SMS service provider) to get API key (10 free credits to new users).
+
+##### Testing Server: http://104.211.76.88:5000/
