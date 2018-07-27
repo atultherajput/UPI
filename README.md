@@ -6,7 +6,7 @@ UPI Payment Service for Merchant
 3. This short URL is sent as SMS to user mobile and his email.
 4. When user browse this short URL in mobile, it will redirect to that UPI link and invokes the local PSP application (like BHIM or PhonePe), where the user can confirm the details, and complete the payment.
 
-![UPI](https://github.com/atultherajput/UPI/blob/master/assets/upi-screenshot.png)
+![UPI](https://github.com/atultherajput/UPI/blob/master/assets/screenshot.png)
 
 ## Notes:
 You need to register at [Textlocal](https://www.textlocal.in) (SMS service provider) to get API key (10 free credits to new users).
