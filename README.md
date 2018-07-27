@@ -1,4 +1,5 @@
 # UPI Payment Service
+UPI Payment Service for Merchant
 ## Workflow:
 1. User go to UPI payment page and enter details like Remitter Mobile Number, Remitter Email, Payee VPA, Payee Name, Amount, Transaction Reference ID, Transaction Note.
 2. On clicking submit button, a UPI link is generated along with it’s short url.
@@ -7,5 +8,9 @@
 
 ![UPI](https://github.com/atultherajput/UPI/blob/master/assets/upi-screenshot.png)
 
-## Note:
+## Notes:
 You need to register at [Textlocal](https://www.textlocal.in) (SMS service provider) to get API key (10 free credits to new users).
+
+##### Testing Server: http://104.211.76.88:5000/
+
+For details check this [UPI Deep Linking Specs 1.5.1](https://www.npci.org.in/sites/all/themes/npcl/images/PDF/UPI_Linking_Specs_ver_1.5.1.pdf)
