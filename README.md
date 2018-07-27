@@ -8,7 +8,9 @@ UPI Payment Service for Merchant
 
 ![UPI](https://github.com/atultherajput/UPI/blob/master/assets/upi-screenshot.png)
 
-## Note:
+## Notes:
 You need to register at [Textlocal](https://www.textlocal.in) (SMS service provider) to get API key (10 free credits to new users).
 
 ##### Testing Server: http://104.211.76.88:5000/
+
+For details check this [UPI Deep Linking Specs 1.5.1](https://www.npci.org.in/sites/all/themes/npcl/images/PDF/UPI_Linking_Specs_ver_1.5.1.pdf)
