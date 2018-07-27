@@ -44,10 +44,8 @@ def index():
             for key, value in json_decoded.items():
                  if value == url:
                     emailStatus = send_mail(recipient, request.url_root+key, value)
-                    message = "Please pay Rs. " + am + " using this link: " + request.url_root+key
-                    #print('exit>> '+message)
+                    message = "Please pay using this link: " + request.url_root+key
                     smsResp = sendSMS(number, message)
-                    #print (smsResp)
                     exitResp = {}
                     exitResp['status'] = 'success'
                     exitResp['shortURL'] = request.url_root+key
@@ -63,10 +61,8 @@ def index():
                 json.dump(json_decoded, json_file)
 
             emailStatus = send_mail(recipient, request.url_root+shorturl, json_decoded[shorturl])
-            message = "Please pay Rs. " + am + " using this link: " + request.url_root+shorturl
-            # print('new>> '+message)
+            message = "Please pay using this link: " + request.url_root+shorturl
             smsResp = sendSMS(number, message)
-            # print (smsResp)
             newResp = {}
             newResp['status'] = 'success'
             exitResp['shortURL'] = request.url_root+shorturl
